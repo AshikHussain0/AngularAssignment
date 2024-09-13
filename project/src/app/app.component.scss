@@ -1,0 +1,43 @@
+.wrapper {
+  display: flex;
+  min-height: 100vh;
+  background-color: #1E1F26;
+
+  .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #23242a;
+    height: 100px;
+    border: none;
+  }
+
+  .sidebar-nav {
+    padding: 0;
+    background-color: #2A2B35;
+    width: 200px;
+    min-width: 200px;
+
+    c-sidebar-nav {
+      --cui-sidebar-nav-link-color: white;
+      --cui-sidebar-nav-link-border-radius: 0;
+      --cui-sidebar-nav-link-active-color: #20c997;
+      --cui-sidebar-nav-link-hover-bg: rgba(253, 253, 253, 0.2);
+      --cui-sidebar-nav-link-hover-color: #20c997;
+      --cui-sidebar-nav-link-active-bg: rgba(253, 253, 253, 0.2);
+    }
+
+  }
+
+  /* Targeting the CoreUI sidebar component */
+  .c-sidebar {
+    width: 200px;
+  }
+
+  
+
+
+  .main-container {
+    flex-grow: 1;
+  }
+}

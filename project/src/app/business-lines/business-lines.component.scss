@@ -1,0 +1,119 @@
+.table-container {
+  padding: 10px 20px 10px 15px;
+
+  .custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #55555D;
+    padding: 20px 10px 0 10px;
+
+    thead {
+      background-color: #4ea762; // Background color for table header
+      color: #fff; // White text color for header
+      cursor: pointer;
+
+      th {
+        padding: 10px;
+        text-align: left;
+        border: 1px solid #55555D;
+
+        .filter-icon {
+          width: 16px; /* Adjust the size of the icon as needed */
+          height: 16px;
+        }
+      }
+    }
+
+    tbody {
+      tr:nth-child(odd) {
+        background-color: #262730;
+      }
+
+      tr:nth-child(even) {
+        background-color: #353641;
+      }
+
+      td {
+        padding: 5px;
+        font-size: medium;
+        color: #fff; // White text color for table body
+        border: 1px solid #55555D;
+      }
+    }
+  }
+
+  .option-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+}
+
+.modal {
+  .modal-content {
+    background-color: #2A2B35;
+    display: flex;
+    justify-content: center;
+    border: none;
+  }
+
+
+  c-modal-header,
+  c-modal-footer {
+    border: none;
+  }
+
+  .search {
+    width: 100%;
+    border-radius: 5px;
+    padding-left: 5px;
+    border: 1px solid #98989d;
+    background-color: #55555D;
+    line-height: 2;
+    color: fff;
+
+    &::placeholder {
+      color: #fff;
+      /* Set placeholder color */
+      opacity: 1;
+      /* Ensure full opacity */
+    }
+
+    &:focus::placeholder {
+      color: #fff;
+      /* Optionally change color on focus */
+    }
+  }
+
+}
+
+input[type="checkbox"] {
+  appearance: none; // Remove default checkbox
+  width: 20px;
+  height: 20px;
+  background-color: #55555D; // Translucent green background
+  border-radius: 3px; // Rounded corners for checkbox
+  position: relative;
+  cursor: pointer;
+
+  &:checked {
+    background-color: rgba(0, 128, 0, 0.2); // Darken background on hover
+    border: 1px solid #4ea762;
+  }
+
+  &:checked {
+    &::before {
+      content: ''; // White check mark
+      position: absolute;
+      left: 6px;
+      top:2px;
+      width: 7px;
+      height: 12px;
+      border: 3px solid white; // Green border
+      border-left: none;
+      border-top: none;
+      transform: rotate(45deg) scale(1);
+    }
+  }
+}
+

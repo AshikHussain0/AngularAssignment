@@ -1,0 +1,15 @@
+@import "@coreui/coreui/scss/coreui";
+@import 'ngx-toastr/toastr';
+
+body {
+    margin: 0;
+    font-family: Poppins, sans-serif;
+}
+
+.text-white {
+    color: white;
+}
+
+.text-green {
+    color: #20c997;
+}

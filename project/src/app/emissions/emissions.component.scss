@@ -1,0 +1,14 @@
+.nav-container {
+    height: 50px;
+    background-color: #343a40;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px 0 20px;
+
+    .profile-icon {
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+    }
+}

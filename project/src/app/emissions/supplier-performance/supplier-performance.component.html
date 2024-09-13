@@ -1,0 +1,20 @@
+<div class="performance-container">
+  <label class="text-white" for="">Emissions</label>
+  <div class="chart-container">
+    <app-pie-chart
+      *ngIf="this.leftChartData"
+      [title]="'Emission by scope'"
+      [chartData]="leftChartData"
+      [color]="leftChartDataColor"
+      [showExport]="true"
+    ></app-pie-chart>
+    <app-pie-chart
+      *ngIf="this.rightChartData"
+      [title]="'Right Emission by scope'"
+      [chartData]="rightChartData"
+      [color]="rightChartDataColor"
+      [showExport]="false"
+    ></app-pie-chart>
+  </div>
+</div>
+<app-green-spinner [isLoading]="loading"></app-green-spinner>

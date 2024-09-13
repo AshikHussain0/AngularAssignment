@@ -1,0 +1,16 @@
+<div class="wrapper">
+  <!-- Sidebar -->
+  <div class="c-sidebar">
+    <c-sidebar visible class="sidebar-nav">
+      <c-sidebar-brand class="header text-light">
+        <p>Sidebar Brand</p>
+      </c-sidebar-brand>
+      <c-sidebar-nav [navItems]="sidebar" dropdownMode="close"> </c-sidebar-nav>
+    </c-sidebar>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-container">
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<div class="nav-container">
+    <span class="text-green" *ngIf="title === '_SupplierPerformanceComponent'">Supplier performance </span>
+    <span
+      ><img
+        class="profile-icon"
+        src="../../../assets/icon/person-icon.png"
+        alt=""
+    /></span>
+  </div>
+<router-outlet (activate)="setActiveComponent($event.constructor.name)"></router-outlet>

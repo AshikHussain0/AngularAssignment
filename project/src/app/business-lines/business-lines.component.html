@@ -1,0 +1,168 @@
+<div class="table-container">
+  <h3 class="mt-0 mb-4 text-white">Business lines masters</h3>
+  <!-- Dynamic Table -->
+  <table class="custom-table">
+    <!-- <thead>
+      <tr>
+        <th>Id</th>
+        <th
+          (click)="
+            getUniqueOptions(
+              'industryClusterMasterCode',
+              'Industry Cluster master code'
+            )
+          "
+        >
+          Industry Cluster master code
+        </th>
+        <th (click)="getUniqueOptions('name', 'Name')">Name</th>
+        <th (click)="getUniqueOptions('code', 'Code')">Code</th>
+        <th class="d-flex justify-content-between" (click)="getUniqueOptions('updatedOn', 'Updated On')">
+          <span>Updated On</span><span><img class="option-icon"  src="../../assets/icon/options-lines (1).png" alt=""></span
+          >
+        </th>
+        <th (click)="getUniqueOptions('user', 'User')">User</th>
+      </tr>
+    </thead> -->
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>
+          <div class="d-flex justify-content-between align-items-center">
+            <span>Industry Cluster master code</span>
+            <img
+              (click)="
+                getUniqueOptions(
+                  'industryClusterMasterCode',
+                  'Industry Cluster master code'
+                )
+              "
+              class="filter-icon"
+              src="../../assets/icon/options-lines (1).png"
+              alt="Filter"
+            />
+          </div>
+        </th>
+        <th>
+          <div class="d-flex justify-content-between align-items-center">
+            <span>Name</span>
+            <img (click)="getUniqueOptions('name', 'Name')"
+              class="filter-icon"
+              src="../../assets/icon/options-lines (1).png"
+              alt="Filter"
+            />
+          </div>
+        </th>
+        <th>
+          <div class="d-flex justify-content-between align-items-center">
+            <span>Code</span>
+            <img (click)="getUniqueOptions('code', 'Code')"
+              class="filter-icon"
+              src="../../assets/icon/options-lines (1).png"
+              alt="Filter"
+            />
+          </div>
+        </th>
+        <th>
+          <div class="d-flex justify-content-between align-items-center">
+            <span>Updated On</span>
+            <img (click)="getUniqueOptions('updatedOn', 'Updated On')"
+              class="filter-icon"
+              src="../../assets/icon/options-lines (1).png"
+              alt="Filter"
+            />
+          </div>
+        </th>
+        <th>
+          <div class="d-flex justify-content-between align-items-center">
+            <span>User</span>
+            <img (click)="getUniqueOptions('user', 'User')"
+              class="filter-icon"
+              src="../../assets/icon/options-lines (1).png"
+              alt="Filter"
+            />
+          </div>
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let row of filteredData; let i = index">
+        <td class="text-white">
+          {{ i + 1 }}
+        </td>
+        <td class="text-white">
+          {{ row.industryClusterMasterCode }}
+        </td>
+        <td class="text-white">
+          {{ row.name }}
+        </td>
+        <td class="text-white">
+          {{ row.code }}
+        </td>
+        <td class="text-white">
+          {{ formatDate(row.updatedOn) }}
+        </td>
+        <td class="text-white">
+          {{ row.user }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Modal Component -->
+<c-modal
+  class="modal"
+  [scrollable]="true"
+  size="sm"
+  alignment="center"
+  #modalContent
+  [(visible)]="modalVisible"
+>
+  <div class="modal-content">
+    <c-modal-header>
+      <h5 class="modal-title text-white">Sort by {{ activeHeader }}</h5>
+      <button
+        type="button"
+        class="text-light bg-transparent border-0"
+        aria-label="Close"
+        (click)="closeFilterModal()"
+      >
+        X
+      </button>
+    </c-modal-header>
+    <c-modal-body>
+      <div>
+        <input
+          class="mb-1 search text-light"
+          [(ngModel)]="searchTerm"
+          (ngModelChange)="filteredUniqueOption()"
+          type="search"
+          placeholder="Search"
+        />
+        <div
+          class="text-white"
+          *ngFor="let option of filteredUniqueValue; let i = index"
+        >
+          <input
+            class="mt-1"
+            type="checkbox"
+            [value]="i"
+            (change)="toggleSelection(option, selectedColumn)"
+          />
+          {{ option }}
+        </div>
+      </div>
+    </c-modal-body>
+    <c-modal-footer class="d-flex justify-content-start">
+      <button class="btn btn-success text-white" (click)="applyFilter()">
+        Save
+      </button>
+      <button class="btn btn-secondary" (click)="clearFilter(selectedColumn)">
+        Clear
+      </button>
+    </c-modal-footer>
+  </div>
+</c-modal>
+<app-green-spinner [isLoading]="loading"></app-green-spinner>
