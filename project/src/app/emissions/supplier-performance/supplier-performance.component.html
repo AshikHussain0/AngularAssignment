@@ -1,5 +1,6 @@
 <div class="performance-container">
   <label class="text-white" for="">Emissions</label>
+  <!-- Left pie chart -->
   <div class="chart-container">
     <app-pie-chart
       *ngIf="this.leftChartData"
@@ -8,6 +9,7 @@
       [color]="leftChartDataColor"
       [showExport]="true"
     ></app-pie-chart>
+    <!-- Right pie chart -->
     <app-pie-chart
       *ngIf="this.rightChartData"
       [title]="'Right Emission by scope'"

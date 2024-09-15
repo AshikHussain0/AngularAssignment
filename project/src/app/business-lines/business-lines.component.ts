@@ -54,6 +54,8 @@ export class BusinessLinesComponent {
 
   /**
   * Method to get all the selected filters
+  * @param value: filter value
+  * @param column: table column
   */
   toggleSelection(value: string, column: string): void {
     if (!this.selectedFilters[column]) {
@@ -86,15 +88,11 @@ export class BusinessLinesComponent {
 
   /**
   * Method to get unique option of selected header
+  * @param column: key of column name
+  * @param header: header name shown in table
   */
   getUniqueOptions(column: keyof BussinessLineDto, header: string): void {
     let unique = [...new Set(this.filteredData.map(item => item[column]))];
-    // if (header === 'Updated On') {
-    //   unique.forEach((element, index) => {
-    //     unique[index] = this.formatDate(element);
-    //   });
-    //   unique = [...new Set(unique)];
-    // }
     this.uniqueOptions = unique;
     this.filteredUniqueValue = this.uniqueOptions;
     this.selectedColumn = column;
@@ -114,6 +112,7 @@ export class BusinessLinesComponent {
 
   /**
   * Method to format the date
+  * @param dateStr: date in string form
   */
   formatDate(dateStr: string): string {
     const cleanedDateStr = dateStr.split('.')[0];
@@ -133,6 +132,7 @@ export class BusinessLinesComponent {
 
   /**
   * Method to clear the selected values for the specified column
+  * @param column: column name
   */
   clearFilter(column: string): void {
     const typedColumn = column as keyof BussinessLineDto;

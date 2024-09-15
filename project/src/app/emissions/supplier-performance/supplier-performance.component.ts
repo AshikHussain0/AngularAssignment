@@ -35,15 +35,11 @@ export class SupplierPerformanceComponent {
         return this.sharedService.getRightChartData();
       }),
       catchError(error => {
-        if (error.status === 400) {
-          console.log(error.message);
-        } else {
-          this.toastr.error('Something went wrong');
-        }
+        this.toastr.error('Something went wrong in left chart data');
         return of(null);
       })
     ).pipe(
-      takeUntil(this.unsubscribe$), finalize(() => {
+      finalize(() => {
         this.loading = false;
       }),
     ).subscribe({
@@ -51,7 +47,7 @@ export class SupplierPerformanceComponent {
         this.rightChartData = rightData;
       },
       error: err => {
-        this.toastr.error('Something went wrong');
+        this.toastr.error('Something went wrong in right chart data');
       }
     });
   }

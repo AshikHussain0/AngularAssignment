@@ -5,15 +5,15 @@ import Exporting from 'highcharts/modules/exporting';
 import ExportData from 'highcharts/modules/export-data';
 import ExportingPDF from 'highcharts/modules/offline-exporting';  // For PDF
 
-// Initialize the exporting modules
+
 Exporting(Highcharts);
 ExportData(Highcharts);
 ExportingPDF(Highcharts);
 
 interface CustomPointOptions extends Highcharts.Point {
-  contribution?: number; // Custom property
-  intensity?: number; // Custom property
-  absolute?: number; // Custom property
+  contribution?: number;
+  intensity?: number;
+  absolute?: number;
 }
 
 
@@ -77,15 +77,19 @@ export class PieChartComponent {
         },
       },
       tooltip: {
-        pointFormat: '{series.name}: <b>{point.percentage:.0f}%</b>',
+        pointFormat: `
+    Contribution: <span style="font-weight: 900">{point.contribution: .2f}</span><br>
+    Intensity: <span style="font-weight: 900">{point.intensity}</span><br>
+    Absolute: <span style="font-weight: 900">{point.absolute: .2f}</span>
+  `,
       },
       legend: this.showExport
         ? {
           align: 'right',
           verticalAlign: 'top',
           layout: 'horizontal',
-          floating: true, // Allow the legend to float over the chart
-          y: 20, // Adjust y-position based on your layout
+          floating: true,
+          y: 20,
           itemStyle: {
             color: '#afb3ba',
             fontSize: '10px',
@@ -98,7 +102,7 @@ export class PieChartComponent {
           align: 'right',
           verticalAlign: 'bottom',
           layout: 'horizontal',
-          floating: true, // Allow the legend to float over the chartS
+          floating: true,
           itemStyle: {
             color: '#afb3ba',
             fontSize: '10px',
@@ -114,21 +118,23 @@ export class PieChartComponent {
         enabled: this.showExport,
         buttons: {
           contextButton: {
-            symbol: 'url(data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="20" height="20"><circle cx="10" cy="4" r="2" fill="white"/><circle cx="10" cy="10" r="2" fill="white"/><circle cx="10" cy="16" r="2" fill="white"/></svg>)',
-            symbolSize: 18,
-            className: 'transparent-context-button',
+            symbolStroke: '#afb3ba',
+            symbolFill: '#ffffff',
             theme: {
-              fill: 'none',
+              fill: '#2A2B35',
+              style: {
+                color: '#afb3ba',
+              }
             },
             states: {
               hover: {
-                enabled: false, // Disable hover effects
-              },
-              select: {
-                enabled: false, // Disable select effects
-              },
+                symbolStroke: '#2A2B35',
+                theme: {
+                  fill: '#2A2B35'
+                }
+              }
             },
-            
+
             menuItems: [
               'viewFullscreen',
               'downloadPDF',
@@ -145,14 +151,16 @@ export class PieChartComponent {
           borderColor: '#2A2B35',
           dataLabels: [
             {
-              enabled: false, // Disable data labels for pie slices
+              enabled: false,
             },
             {
               enabled: true,
-              distance: -20,
-              format: '{point.percentage:.0f}%', // Only keep percentage labels
+              distance: -25,
+              format: '{point.percentage:.0f}%',
               style: {
                 fontSize: '0.9em',
+                border: 'none',
+                textOutline: 'none',
               },
             },
           ],
@@ -167,7 +175,7 @@ export class PieChartComponent {
           size: '80%',
           data: [
             {
-              name: 'Scope 1', // Change to just the scope number if needed
+              name: 'Scope 1',
               y: this.chartData.absoluteChartData[0].percentageValue,
               color: this.color[0],
               contribution: this.chartData.absoluteChartData[0].percentageValue,

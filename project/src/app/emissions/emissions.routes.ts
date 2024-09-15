@@ -4,18 +4,19 @@ import { EmissionsComponent } from './emissions.component';
 
 
 export const emissionsRoutes: Routes = [
+
   {
     path: '',
     component: EmissionsComponent,
     children: [
       {
+        path: 'supplier-performance',
+        component: SupplierPerformanceComponent,
+      },
+      {
         path: '',
         redirectTo: 'supplier-performance',
         pathMatch: 'full',
-      },
-      {
-        path: 'supplier-performance',
-        component: SupplierPerformanceComponent,
       },
     ],
   },

@@ -1,16 +1,15 @@
 <div class="wrapper">
   <!-- Sidebar -->
-  <div class="c-sidebar">
-    <c-sidebar visible class="sidebar-nav">
+    <c-sidebar [(visible)]="isSidebarVisible" class="sidebar-nav">
       <c-sidebar-brand class="header text-light">
         <p>Sidebar Brand</p>
       </c-sidebar-brand>
       <c-sidebar-nav [navItems]="sidebar" dropdownMode="close"> </c-sidebar-nav>
     </c-sidebar>
-  </div>
 
   <!-- Main Content -->
-  <div class="main-container">
+  <div class="main-container" [ngClass]="{'small-screen': isSmallScreen}">
+    <img *ngIf="isSmallScreen" (click)="toggleSidebar()" src="../assets/icon/options-lines (1).png" alt="">
     <router-outlet></router-outlet>
   </div>
 </div>

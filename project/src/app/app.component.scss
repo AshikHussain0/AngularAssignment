@@ -1,7 +1,8 @@
 .wrapper {
   display: flex;
-  min-height: 100vh;
+  height: 100vh;
   background-color: #1E1F26;
+  overflow-x: auto;
 
   .header {
     display: flex;
@@ -29,15 +30,22 @@
 
   }
 
-  /* Targeting the CoreUI sidebar component */
-  .c-sidebar {
-    width: 200px;
-  }
-
-  
-
-
   .main-container {
     flex-grow: 1;
+    margin-left: 200px;
+
+    img{
+      width: 40px;
+      margin-left: 5px;
+    }
   }
+
+}
+
+@media (max-width: 991px) {
+  .wrapper {
+    .main-container {
+      margin-left: 55px;
+    } 
+  } 
 }

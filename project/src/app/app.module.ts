@@ -25,9 +25,9 @@ import { ToastrModule } from 'ngx-toastr';
     BusinessLinesModule,
     HttpClientModule,
     NavModule,
-    RouterModule.forRoot(routes),
     SharedModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    RouterModule.forRoot(routes),
 ],
   providers: [], 
   bootstrap: [AppComponent],

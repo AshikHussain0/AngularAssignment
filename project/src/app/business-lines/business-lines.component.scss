@@ -8,8 +8,8 @@
     padding: 20px 10px 0 10px;
 
     thead {
-      background-color: #4ea762; // Background color for table header
-      color: #fff; // White text color for header
+      background-color: #4ea762;
+      color: #fff;
       cursor: pointer;
 
       th {
@@ -18,7 +18,7 @@
         border: 1px solid #55555D;
 
         .filter-icon {
-          width: 16px; /* Adjust the size of the icon as needed */
+          width: 16px;
           height: 16px;
         }
       }
@@ -36,7 +36,7 @@
       td {
         padding: 5px;
         font-size: medium;
-        color: #fff; // White text color for table body
+        color: #fff;
         border: 1px solid #55555D;
       }
     }
@@ -63,6 +63,10 @@
     border: none;
   }
 
+  .btn-40 {
+    width: 40%;
+  }
+
   .search {
     width: 100%;
     border-radius: 5px;
@@ -74,46 +78,42 @@
 
     &::placeholder {
       color: #fff;
-      /* Set placeholder color */
       opacity: 1;
-      /* Ensure full opacity */
     }
 
     &:focus::placeholder {
       color: #fff;
-      /* Optionally change color on focus */
     }
   }
 
 }
 
 input[type="checkbox"] {
-  appearance: none; // Remove default checkbox
+  appearance: none;
   width: 20px;
   height: 20px;
-  background-color: #55555D; // Translucent green background
-  border-radius: 3px; // Rounded corners for checkbox
+  background-color: #55555D;
+  border-radius: 3px;
   position: relative;
   cursor: pointer;
 
   &:checked {
-    background-color: rgba(0, 128, 0, 0.2); // Darken background on hover
+    background-color: rgba(0, 128, 0, 0.2);
     border: 1px solid #4ea762;
   }
 
   &:checked {
     &::before {
-      content: ''; // White check mark
+      content: '';
       position: absolute;
       left: 6px;
-      top:2px;
+      top: 2px;
       width: 7px;
       height: 12px;
-      border: 3px solid white; // Green border
+      border: 3px solid white;
       border-left: none;
       border-top: none;
       transform: rotate(45deg) scale(1);
     }
   }
 }
-
